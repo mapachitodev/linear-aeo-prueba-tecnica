@@ -1,0 +1,6 @@
+{
+  "name": "SearchBrand · AEO Linear",
+  "description": "AEO Intelligence & Brand Visibility dashboard for Linear in Gemini (gemini-2.5-flash), tracking share of voice, rankings, sentiment, and context sensitivity.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
