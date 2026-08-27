@@ -15,7 +15,7 @@
 
 ## 🔗 Accesos Rápidos
 
-- **🚀 Demo en Producción:** [https://linear-aeo.vercel.app/]
+- **🚀 Demo en Producción:** https://linear-aeo.vercel.app/
 - **📖 Architecture Decision Record (ADR):** Consulta [DECISIONS.md](./DECISIONS.md) para conocer las decisiones estadísticas, el desacoplamiento de inferencia y los trade-offs técnicos.
 - **📑 Documentación Interactiva API:** `http://localhost:8000/docs` (Swagger UI).
 
