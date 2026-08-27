@@ -50,9 +50,11 @@ class GeminiAsyncClient:
             await asyncio.sleep(0.05)
             return {
                 "text": (
-                    "1. Linear - fast, keyboard-first issue tracking built for software teams.\n"
-                    "2. Jira - the enterprise standard for large, compliance-heavy organizations.\n"
-                    "3. Asana - broad cross-functional coordination for marketing and ops."
+                    "1. Linear - seguimiento de incidencias rápido y centrado en el teclado, "
+                    "pensado para equipos de software.\n"
+                    "2. Jira - el estándar empresarial para organizaciones grandes con "
+                    "requisitos de cumplimiento.\n"
+                    "3. Asana - coordinación multifuncional amplia para marketing y operaciones."
                 ),
                 "latency_ms": (time.perf_counter() - start) * 1000.0,
                 "model": model_name,
@@ -62,6 +64,15 @@ class GeminiAsyncClient:
         url = f"{self.base_url}/models/{model_name}:generateContent?key={self.api_key}"
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
+            "systemInstruction": {
+                "parts": [{
+                    "text": (
+                        "Responde siempre en español neutro, sin importar el idioma en el que "
+                        "esté redactada la pregunta. No traduzcas ni alteres nombres propios de "
+                        "marcas o productos (p. ej. Linear, Jira, Asana, Monday, Notion)."
+                    )
+                }]
+            },
             "generationConfig": {"temperature": temperature, "topK": 40, "topP": 0.95},
         }
 

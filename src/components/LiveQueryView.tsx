@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import type { EvaluateResponse } from '../types';
+import { renderInlineMarkdown } from '../lib/markdown';
 
 interface LiveQueryViewProps {
   theme: ThemeMode;
@@ -221,7 +222,7 @@ export function LiveQueryView({ theme, searchQuery, survey, isAuditRunning, onRu
                 Pregunta: <span className="text-slate-200 font-normal">"{lastResult.prompt}"</span>
               </div>
               <div className={`p-4 rounded-2xl text-xs leading-relaxed font-sans border whitespace-pre-line ${isDark ? 'bg-[#081836] border-slate-800 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-700'}`}>
-                {lastResult.response}
+                {renderInlineMarkdown(lastResult.response)}
               </div>
             </div>
           </motion.div>
@@ -403,7 +404,7 @@ export function LiveQueryView({ theme, searchQuery, survey, isAuditRunning, onRu
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider block mb-2 text-slate-400">Respuesta del modelo</span>
                 <div className={`p-4 rounded-2xl text-xs leading-relaxed font-sans border ${isDark ? 'bg-[#050f22] border-slate-800 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-700'}`}>
-                  <p className="whitespace-pre-line">{inspecting.raw_response}</p>
+                  <p className="whitespace-pre-line">{renderInlineMarkdown(inspecting.raw_response)}</p>
                 </div>
               </div>
 
